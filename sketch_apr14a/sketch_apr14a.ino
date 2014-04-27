@@ -1,6 +1,4 @@
 int Horst = 11;
-int Helligkeit = 0;
-int Zuwachs = 1;
 
 void setup() {
     pinMode(Horst, OUTPUT); 
@@ -9,6 +7,9 @@ void setup() {
 
 void loop() {
  
+    int Helligkeit = 0;
+    int Zuwachs = 1;
+
     analogWrite(Horst, Helligkeit);
     delay(5);
     Helligkeit = Helligkeit + Zuwachs;
