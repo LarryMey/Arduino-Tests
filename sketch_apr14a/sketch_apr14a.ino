@@ -3,7 +3,7 @@ int Helligkeit = 0;
 int Zuwachs = 1;
 
 void setup() {
-    pinMode(11, OUTPUT); 
+    pinMode(Horst, OUTPUT); 
     //Pin 12 als Ausgang definieren
 }
 
