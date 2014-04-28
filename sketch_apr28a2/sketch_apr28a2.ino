@@ -14,6 +14,6 @@ void setup(){
 
 void loop(){
   PotiWert = analogRead(PotiPin);
-  analogWrite(PinLED, PotiWert);
+  analogWrite(PinLED, PotiWert / 4);
     
 }
