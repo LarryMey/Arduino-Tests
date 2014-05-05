@@ -20,19 +20,19 @@ void setup(){
 
 void loop(){
   PotiWert = analogRead(PotiPin); 
-    //einlesen des Potis (analogRead(PotiPin)) wird gespeichert in PotiWert (= ist ein zuweisen)
+    //einlesen des Potis (analogRead(PotiPin)) wird intern gespeichert in PotiWert (= ist ein zuweisen)
   Serial.println(PotiWert); 
     //Ausgeben der Variablen auf dem seriellen Port 
     //Serial.print schreibt alles in eine Zeile 
     //Serial.println macht Zeilenumbrüche nach jedem Wert
   
   if (PotiWert < 90){
-   analogWrite(LedPin, 255); 
+   Helligkeit = 255;
   }
       // LED ganz angeschalten (255), wenn Photo-Dings ganz dunkel liest
   
   else if (PotiWert > 625){
-   analogWrite(LedPin, 0); 
+   Helligkeit = 0;
   }  
       // mit else überprüft er nur wenn das erste nicht gegeben ist
       
@@ -41,9 +41,6 @@ void loop(){
   }
       //mapping Bereich des Eingelesenen Wertebereich auf den auslesbaren Wertebereich.
     analogWrite(LedPin, Helligkeit);
-  
-  analogWrite(PinLED, PotiWert / 4); 
-    //führt die Pulsweitenmodulation auf der LED aus 
     
   delay(100); 
     //10 mal pro sec
