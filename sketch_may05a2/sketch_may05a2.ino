@@ -25,8 +25,26 @@ void loop(){
     //Ausgeben der Variablen auf dem seriellen Port 
     //Serial.print schreibt alles in eine Zeile 
     //Serial.println macht Zeilenumbrüche nach jedem Wert
+  
+  if (PotiWert < 90){
+   analogWrite(LedPin, 255); 
+  }
+      // LED ganz angeschalten (255), wenn Photo-Dings ganz dunkel liest
+  
+  else if (PotiWert > 625){
+   analogWrite(LedPin, 0); 
+  }  
+      // mit else überprüft er nur wenn das erste nicht gegeben ist
+      
+  else{
+    Helligkeit = map(PotiWert, 90, 625, 0, 255);
+  }
+      //mapping Bereich des Eingelesenen Wertebereich auf den auslesbaren Wertebereich.
+    analogWrite(LedPin, Helligkeit);
+  
   analogWrite(PinLED, PotiWert / 4); 
-    //führt die Pulsweitenmodulation auf der LED aus über den Bereich des PotiWerts/4
+    //führt die Pulsweitenmodulation auf der LED aus 
+    
   delay(100); 
     //10 mal pro sec
     
