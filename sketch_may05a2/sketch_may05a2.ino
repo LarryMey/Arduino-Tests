@@ -6,6 +6,8 @@ int PotiWert;
      // den wollen wir einlesen
      // Poti ersetzt durch Photo-Widerstand 
      // In Abhängigkeit der Helligkeit werden verschiedene Werte eingelesen
+     
+int Helligkeit;
 
 
 void setup(){
@@ -31,16 +33,16 @@ void loop(){
   }
       // LED ganz angeschalten (255), wenn Photo-Dings ganz dunkel liest
   
-  else if (PotiWert > 625){
+  else if (PotiWert > 400){
    Helligkeit = 0;
   }  
       // mit else überprüft er nur wenn das erste nicht gegeben ist
       
   else{
-    Helligkeit = map(PotiWert, 90, 625, 0, 255);
+    Helligkeit = map(PotiWert, 400, 90, 0, 255);
   }
       //mapping Bereich des Eingelesenen Wertebereich auf den auslesbaren Wertebereich.
-    analogWrite(LedPin, Helligkeit);
+    analogWrite(PinLED, Helligkeit);
     
   delay(100); 
     //10 mal pro sec
