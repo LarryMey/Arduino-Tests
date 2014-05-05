@@ -41,7 +41,7 @@ void loop(){
   else{
     Helligkeit = map(PotiWert, 400, 90, 0, 255);
   }
-      //mapping Bereich des Eingelesenen Wertebereich auf den auslesbaren Wertebereich.
+      //mapping Bereich des eingelesenen Wertebereichs auf den auslesbaren Wertebereich. quasi wie man am Poti dreht - das ding kriegt viel oder wenig licht.
     analogWrite(PinLED, Helligkeit);
     
   delay(100); 
