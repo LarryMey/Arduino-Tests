@@ -28,18 +28,18 @@ void loop(){
     //Serial.print schreibt alles in eine Zeile 
     //Serial.println macht Zeilenumbrüche nach jedem Wert
   
-  if (PotiWert < 90){
+  if (PotiWert < 260){
    Helligkeit = 255;
   }
       // LED ganz angeschalten (255), wenn Photo-Dings ganz dunkel liest
   
-  else if (PotiWert > 400){
+  else if (PotiWert > 680){
    Helligkeit = 0;
   }  
       // mit else überprüft er nur wenn das erste nicht gegeben ist
       
   else{
-    Helligkeit = map(PotiWert, 400, 90, 0, 255);
+    Helligkeit = map(PotiWert, 680, 260, 0, 255);
   }
       //mapping Bereich des eingelesenen Wertebereichs auf den auslesbaren Wertebereich. quasi wie man am Poti dreht - das ding kriegt viel oder wenig licht.
     analogWrite(PinLED, Helligkeit);
